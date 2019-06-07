@@ -1,0 +1,54 @@
+<section class="table-wrapper">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Business ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+            <tr>
+                <td>${bizList.id}</td>
+                <td>${bizList.name}</td>
+                <td>${bizList.phone}</td>
+                <td>${bizList.address}</td>
+                <td>${bizList.type}</td>
+            </tr>            
+    </table>
+    <h3>Check out the reviews from ${bizList.name}!</h3>
+    <table class="table-reviews">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+        ${reviewList.map(place =>
+            `<tr>
+                <td>${place.title} </td>
+                <td>${place.text_review}</td>
+            </tr>`
+            ).join('')}          
+    </table>
+</section>
+<section class="form-wrapper">
+    <p class="input-title">Add a New Review for ${bizList.name}</p>
+    <form action="/business/review" method="POST">
+        <label>Title
+            <input type="text" name="title">
+        </label>
+        <label>Review
+            <input type="text" name="text_review">
+        </label>
+        <label>
+            <input type="hidden" name="business_id" value="${bizList.id}">
+        </label>
+        <button type="submit" class= "is-primary">Submit</button>
+    </form>
+    <p><a href="/directory">Go Back to Directory!</a></p>
+</section>
+
+
+

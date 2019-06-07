@@ -1,0 +1,42 @@
+<section class="table-wrapper">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Business ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+    ${bizList.map(place =>
+        `<tr>
+            <td><a href="/business/${place.id}">${place.id}</td></a>
+            <td><a href="/business/${place.id}">${place.name} </td></a>
+        </tr>`
+        ).join('')}            
+    </table>
+</section>
+
+<section class="form-wrapper">
+    <p class="input-title">Add a New Business</p>
+    <p class="add-biz-blurb">Please add your business! We welcome all!</p>
+    <form action="/" method="POST">
+        <label>Business Name
+            <input type="text" name="name">
+        </label>
+        <label>Phone Number
+            <input type="text" name="phone">
+        </label>
+        <label>Address
+            <input type="text" name="address">
+        </label>
+        <label>Type
+            <input type="text" name="type">
+        </label>
+        <button type="submit" class= "is-primary">Submit</button>
+    </form>
+    <p><a href="/">Go Back Home!</a></p>
+</section>
+
+
+
+
+
